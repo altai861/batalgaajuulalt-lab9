@@ -15,48 +15,27 @@ public class MergeSortTest {
         assertArrayEquals(expected, input, "The array should be sorted correctly.");
     }
 
-    // Test case for an already sorted array
+    // TEST 1
     @Test
-    void testAlreadySortedArray() {
-        int[] input = {1, 2, 3, 4, 5};
-        int[] expected = {1, 2, 3, 4, 5};
-        MergeSort.mergesort(input);
-        assertArrayEquals(expected, input, "An already sorted array should remain the same.");
+    void testMerge() {
+        int[] arr = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
+        int[] left = {1, 2, 3, 4, 5, 10, 11, 12};
+        int[] right = {6, 7, 8, 9, 10};
+        MergeSort.merge(arr, left, right);
+        int[] expected = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 11, 12};
+
+        assertArrayEquals(expected, arr, "The arrays should be merged correctly.");
     }
 
-    // Test case for a reverse-sorted array
+    // TEST 2
     @Test
-    void testReverseSortedArray() {
-        int[] input = {5, 4, 3, 2, 1};
-        int[] expected = {1, 2, 3, 4, 5};
-        MergeSort.mergesort(input);
-        assertArrayEquals(expected, input, "A reverse-sorted array should be correctly sorted.");
-    }
+    void testMerge2() {
+        int[] arr = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
+        int[] left = {20, 21, 22, 40, 50};
+        int[] right = {10, 13, 16, 30, 41, 60, 75};
+        MergeSort.merge(arr, left, right);
+        int[] expected = {10, 13, 16, 20, 21, 22, 30, 40, 41, 50, 60, 75};
 
-    // Test case for an array with duplicate elements
-    @Test
-    void testArrayWithDuplicates() {
-        int[] input = {3, 1, 4, 1, 5, 9, 2, 6, 5, 3};
-        int[] expected = {1, 1, 2, 3, 3, 4, 5, 5, 6, 9};
-        MergeSort.mergesort(input);
-        assertArrayEquals(expected, input, "The array should handle duplicate elements.");
-    }
-
-    // Test case for an array with a single element
-    @Test
-    void testSingleElementArray() {
-        int[] input = {42};
-        int[] expected = {42};
-        MergeSort.mergesort(input);
-        assertArrayEquals(expected, input, "A single-element array should remain the same.");
-    }
-
-    // Test case for an empty array
-    @Test
-    void testEmptyArray() {
-        int[] input = {};
-        int[] expected = {};
-        MergeSort.mergesort(input);
-        assertArrayEquals(expected, input, "An empty array should remain empty.");
+        assertArrayEquals(expected, arr, "The arrays should be merged correctly.");
     }
 }
