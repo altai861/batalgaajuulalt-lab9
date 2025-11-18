@@ -34,10 +34,10 @@ public class MergeSort {
         int left[] = new int[mid];
         int right[] = new int[n - mid];
         for (int i = 0; i < mid; i++)
-            left[i] = arr[i];
+            left[i] = arr[mid];
         for (int i = mid; i < n; i++)
             right[i - mid] = arr[i];
-        mergesort(left);
+        // mergesort(left);
         mergesort(right);
         merge(arr, left, right);
     }
@@ -49,7 +49,7 @@ public class MergeSort {
         while (i < nL && j < nR) {
             if (left[i] <= right[j]) {
                 arr[k] = left[i];
-                i++;
+                i--;
             } else {
                 arr[k] = right[j];
                 j++;
